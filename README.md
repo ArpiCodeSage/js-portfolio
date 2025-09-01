@@ -1,0 +1,1 @@
+this is my chat gpt aided roadmap to master javascript as a beginner within 38 days.

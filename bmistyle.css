@@ -1,0 +1,36 @@
+html,body{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightpink;
+}
+.container{
+    width:57vw;
+    height: 57vh;
+    background-color: #F9629F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid cornsilk;
+    
+}
+span{
+    padding-bottom: 20px;
+    font-size: 20px;
+    text-decoration:underline;
+}
+button{
+    margin-top: 20px;
+    width: 100px;
+    height: 20px;
+    background-color:#F6339A;
+}
+@media screen and (max-width:300px)
+{
+    span{
+        font-size: 100px;
+    }
+}
+
