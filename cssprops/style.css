@@ -1,0 +1,21 @@
+
+/* For each class, set some colors */
+:root{
+    --main-bg-color:green;
+}
+
+
+.one {
+  background-color:yellowgreen;
+}
+
+.two,.three{
+    background-color: var(--main-bg-color);
+}
+.four {
+  background-color: teal;
+}
+
+.five {
+  background-color: teal;
+}

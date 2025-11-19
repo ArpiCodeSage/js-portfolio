@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 40px 50px;
+        }
+        .formdesign{
+            font-size: 15px;
+            font-weight: 200;
+            padding-bottom: 20px;
+        }
+        .formdesign input{
+            width: 60%;
+            border: 2px solid pink;
+            border-radius: 15px;
+        }
+        .formerror{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>FORM VALIDATION</h1>
+    <form action="/myaction.php" name="myForm" onsubmit="return validateForm()" >
+        <div class="formdesign" id="name">
+                    Name:<input type="text" name="fname" required> 
+                    <b> <small class="formerror"></small></b>
+
+        </div>
+         <div class="formdesign" id="email">
+                    Email:<input type="email" name="femail" required> <b> <small class="formerror"></small></b>
+
+        </div>
+         <div class="formdesign" id="phone">
+                    Phone:<input type="phone" name="fphone" required> <b> <small class="formerror"></small></b>
+
+        </div>
+         <div class="formdesign" id="pass">
+                    Password:<input type="password" name="fpass" required> <b> <small class="formerror"></small></b>
+
+        </div>
+         <div class="formdesign" id="cpass">
+                Confirm Password:<input type="password" name="fcpass" required> <b> <small class="formerror"></small></b>
+
+        </div>
+        <input class="but" type="submit" value="Submit">
+    </form>
+</body>
+<script>
+   
+
+  function clearerrors(){
+    const errors=document.getElementsByClassName('formerror');
+    for(const item of errors){
+        item.innerHTML="";
+    }
+  }
+   function seterror(id,error)
+   {
+    const element=document.getElementById(id);
+    element.getElementsByClassName("formerror")[0].innerHTML=error;
+   }
+
+    function validateForm()
+    {
+        clearerrors();
+
+
+        var returnval=true;
+        var name=document.forms['myForm']["fname"].value;
+        
+        if(name.length<5)
+    {
+        seterror("name","*length of name is too short");
+        returnval=false;
+    }
+        if(name.length==0)
+    {
+        seterror("name","*length of name cannot be zero");
+        returnval=false;
+    }
+    const email=document.forms['myForm']["femail"].value;
+    if(email.length>=15)
+    {
+        seterror("email","email length is too long");
+        returnval=false;
+    }
+    const phone=document.forms['myForm']["fphone"].value;
+    if(/^[A-Za-z]+$/.test(phone))
+    {
+        seterror("phone","phone no. cannot contain letters");
+        returnval=false;
+    }
+    if(/[!@#$%^&*(){}?<>[\]]/.test(phone))
+
+{
+    seterror("phone","phone no. cannot contain special characters");
+    returnval=false;
+}    if(phone.length!=10)
+    {
+        seterror("phone","*not a valid phone number")
+        returnval=false;
+    }
+        const pass=document.forms['myForm']["fpass"].value;
+
+    const hasUpper=/[A-Z]/.test(pass);
+    const digit=/\d/.test(pass);
+    const hasSpecial=/[!@#$%^&*:,{}<>[\]]/.test(pass);
+     let passmsg="";
+     if(!hasUpper)
+     passmsg+="must have atleast one uppercase character   ";
+    if(!digit)
+    passmsg+="must have atleast one digit   ";
+if(!hasSpecial)
+passmsg+="must have atleast one special character   ";
+if(pass.length<8)
+{
+    passmsg+="password length should be atleast 8   "
+}
+if(passmsg)//passms.length!=0
+{
+    seterror("pass",passmsg);
+    returnval=false;
+}
+    const cpass=document.forms['myForm']["fcpass"].value;
+    if(pass!=cpass)
+    {
+        seterror("cpass","password and confirm password should be same")
+        returnval=false;
+    }
+        return returnval;
+    }
+</script>
+</html>

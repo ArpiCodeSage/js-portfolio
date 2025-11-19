@@ -1,0 +1,20 @@
+@property --box-color {
+  syntax: "<color>";
+  initial-value: teal;
+  inherits: false;
+}
+
+.one {
+  --box-color: pink;
+  background-color: var(--box-color);
+}
+
+.two {
+  --box-color: peenk;
+  background-color: var(--box-color);
+}
+
+.three {
+  --box-color: 2rem;
+  background-color: var(--box-color);
+}

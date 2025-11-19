@@ -1,0 +1,11 @@
+:root{
+    --myvar:blue;
+}
+
+.one{
+    background-color: var(--myvar,pink);
+}
+
+.two{
+    background-color: var(---my,var(--m,yellowgreen));
+}

@@ -1,0 +1,17 @@
+@property --text-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: pink;
+}
+p {
+  font-weight: bold;
+  color: blue;
+}
+:root {
+  --text-color: yellow;
+}
+p {
+  color: var(--text-color);
+}
+
+

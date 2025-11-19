@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul li{
+    list-style-type: none;
+}
+.tabs li {
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.tabs li.active {
+  background: #333;
+  color: white;
+}
+
+@property --logo-color{
+    syntax: "<color>";
+    inherits: false;
+    initial-value: pink;
+
+}
+.panel{
+    color:var(--logo-color);
+    transition: color 0.3s;/*Whenever color changes for .logo, animate it*/
+
+}
+.panel:hover{
+    --logo-color:red;
+}
+.logo:hover{
+    --logo-color:red;
+}
+.panel {
+  display: none;
+  margin-top: 10px;
+}
+.panel.active {
+  display: block;
+}
+
+html,body{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+background: linear-gradient(45deg, rgba(250, 218, 97, 1.000) 0.000%, rgba(255, 145, 136, 1.000) 50.000%, rgba(255, 90, 205, 1.000) 100.000%);
+}
+.container{
+    height: 1000px;
+    width:70vw;
+    margin: 10px 10px 10px 10px;
+    padding-top:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid black;
+
+background: linear-gradient(45deg, rgba(252, 142, 197, 1.000) 0.000%, rgba(255, 141, 211, 1.000) 25.000%, rgba(255, 161, 216, 1.000) 50.000%, rgba(255, 193, 210, 1.000) 75.000%, rgba(255, 224, 195, 1.000) 100.000%);
+}
+.title{
+    padding-bottom: 52px;
+    border: 2px solid black;
+    padding: 50px 42px 42px 42px;
+    padding-top: 50px;
+    margin-bottom: 42px;
+    margin-top: 23px;
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+background: linear-gradient(180deg, rgba(169, 202, 255, 1.000) 0.000%, rgba(184, 203, 255, 1.000) 16.667%, rgba(211, 203, 255, 1.000) 33.333%, rgba(240, 200, 249, 1.000) 50.000%, rgba(255, 197, 241, 1.000) 66.667%, rgba(255, 192, 236, 1.000) 83.333%, rgba(255, 186, 236, 1.000) 100.000%)
+}
+.book:hover{
+   transform: scale(1.025);
+   transition-timing-function: ease-in-out;
+}
+header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#check-box{
+    margin-bottom: 35px;
+}
+.book
+{
+    display: flex;
+    width: 350px;
+    gap: 15px;
+    border: 2px solid black;
+    margin-bottom: 15px;
+    padding: 5px 5px 5px 5px;
+    background-color: beige;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.book p{
+    flex-grow: 1;/*fills/takes up available space within the container as compared to other items*/
+}
+#addbook:hover{
+    transform: scale(1.09);
+}
+.book_list{
+
+    max-height: 450px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+#addbook{
+    height: 20px;
+    width: 50px;
+}
+.filters{
+    margin-bottom: 20px;
+}

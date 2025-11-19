@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO-DO LIST</title>
+  <link rel="stylesheet" href="style.css" class="rel">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+ 
+
+      <div class="title">
+        <h2>BOOK SEARCH LIST</h2>
+        <form name="searchbar">
+          <input type="text" name="book-search" placeholder="search for the book you want...">
+        </form>
+   
+      <div id="check">
+        <input type="checkbox" id="check-box" value="yes">
+        <label for="check-box">Hide all books</label>
+      </div>
+
+    </header>
+         <div class="filters">
+  <button data-filter="all">All</button>
+  <button data-filter="read">Read</button>
+  <button data-filter="unread">Unread</button>
+</div>
+    <div class="book_list">
+      <ul>
+        <li class="book unread">
+          <p> Pride and Prejudice by Jane Austen
+          </p>
+          <button class="read-toggle">Mark as Read</button>
+          <button class="delbtn">delete</button>
+
+        </li>
+        <li class="book read">
+          <p> 1984 by George Orwell
+          </p>
+          <button class="read-toggle">Mark as Unread</button>
+
+          <button class="delbtn"><span>delete</span></button>
+
+        </li>
+        <li class="book read">
+          <p> The Great Gatsby by F. Scott Fitzgerald
+          </p>
+          <button class="read-toggle">Mark as Unread</button>
+
+          <button class="delbtn"><span>delete</span></button>
+        </li>
+        <li class="book unread">
+          <p> The Alchemist by Paulo Coelho
+          </p>
+          <button class="read-toggle">Mark as Read</button>
+
+          <button class="delbtn"><span>delete</span></button>
+        </li>
+        <li class="book read">
+          <p> Wings of Fire by A.P.J. Abdul Kalam
+          </p>
+          <button class="read-toggle">Mark as Unread</button>
+
+          <button class="delbtn"><span>delete</span></button>
+        </li>
+        <li class="book unread">
+          <p> To Kill a Mockingbird: by Harper Lee
+          </p>
+          <button class="read-toggle">Mark as Read</button>
+
+          <button class="delbtn"><span>delete</span></button>
+        </li>
+        <li class="book unread">
+          <p> The Lord of the Rings: by J.R.R. Tolkien
+          </p>
+          <button class="read-toggle">Mark as Read</button>
+
+
+          <button class="delbtn"><span>delete</span></button>
+        </li>
+        <li class="book read">
+          <p>Sapiens: by Yuval Noah Harari</p>
+          <button class="read-toggle">Mark as Unread</button>
+
+          <button class="delbtn"><span>delete</span></button>
+        </li>
+      </ul>
+    </div>
+    <footer>
+
+      <input type="text" placeholder="add more books here..." id="add_books_here">
+
+      <button id="addbook">Add</button>
+
+    </footer>
+    <div id="tabbed-content">
+      <ul class="tabs">
+        <li data-target="#about" class="active">About</li>
+        <li data-target="#contact">Contact</li>
+      </ul>
+      <div class="panel active" id="about">
+        <p>Content for about tab..</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, eveniet. Itaque, qui necessitatibus?
+        </p>
+      </div>
+      <div class="panel" id="contact">
+        <p>Content for contact tab..</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error ipsam maxime tenetur soluta doloremque quam.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="scriptx.js"></script>
+</body>
+
+</html>

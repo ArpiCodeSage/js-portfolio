@@ -1,0 +1,36 @@
+
+*{
+    padding-top: 12px;
+}
+
+
+.panel{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
+}
+
+.accordian{
+    display: flex;
+    width: 100%;
+    padding: 20px 20px;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+.accordian:after{
+    /*:after → is a pseudo-element. It creates an element after the content of the selected element (.accordion) without needing extra HTML.*/
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+}
+
+
+.active:after{
+    content: "\2796";
+}
+.active,.accordian:hover{
+    background-color: #ccc;
+}
+/*.active refers to the  content of the button that was clicked*/

@@ -1,0 +1,11 @@
+div {
+  background-color: var(--box-color);
+}
+
+.two {
+--box-color:purple;
+}
+
+.three {
+    --box-color:pink;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIP CALCULATOR</title>
+    <style>
+        html,body{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 2px solid saddlebrown;
+            padding: 7.5px;
+            padding-left: 70px;
+            padding-right: 70px;
+        }
+        span{
+            text-decoration: underline;
+        }
+        .bill{
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span><h2>TIP CALCULATOR</h2></span>
+        <div class="bill">
+            <h3>Enter your bill amount</h3>
+            <input type="text" name="bill" placeholder="enter bill in rupees">
+        </div>
+        <div class="tip">
+            <button type="submit"></button>
+           <h3>Your tip is:</h3>
+           <br>
+
+
+        </div>
+       
+    </div>
+    <script>
+        const container=document.querySelector(".container");
+     const btn=document.querySelector("button");
+     const bill=document.querySelector(".bill input");
+     const t=document.createElement("p");
+     const a=document.createElement("p");
+     btn.textContent="CALCUATE MY TIP AND AMOUNT"
+     btn.addEventListener("click",()=>{
+        const tip=0.01*Number(bill.value);
+        t.textContent=tip;
+        const amount=Number(bill.value)+tip;
+        a.textContent=amount;
+
+        container.appendChild(t);
+        container.appendChild(a);
+     })
+    </script>
+</body>
+</html>

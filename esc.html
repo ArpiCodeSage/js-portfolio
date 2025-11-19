@@ -1,0 +1,92 @@
+<!-- HTML -->
+<button id="openBtn">Open modal</button>
+
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" aria-hidden="true" style="display:none;">
+  <div class="backdrop" id="backdrop"></div>
+  <div class="panel" tabindex="-1">
+    <h2 id="mTitle">Modal title</h2>
+    <p id="mDesc">Some description</p>
+    <input placeholder="First input">
+    <button id="closeBtn">Close</button>
+  </div>
+</div>
+
+<style>
+/* minimal */
+#modal { position:fixed; inset:0; display:grid; place-items:center; }
+.backdrop { position:absolute; inset:0; background:rgba(0,0,0,0.5); }
+.panel { position:relative; background:white; padding:1.5rem; z-index:1; outline:none; }
+</style>
+
+<script>
+const openBtn = document.getElementById('openBtn');
+const modal = document.getElementById('modal');
+const panel = modal.querySelector('.panel');
+const closeBtn = document.getElementById('closeBtn');
+const backdrop = document.getElementById('backdrop');
+
+let lastFocused = null;
+
+function getFocusable(container) {
+  return [...container.querySelectorAll(
+    'a[href], button:not([disabled]), textarea, input:not([disabled]), select, [tabindex]:not([tabindex="-1"])'
+  )].filter(el => el.offsetParent !== null);
+}
+
+function openModal() {
+  lastFocused = document.activeElement;
+  modal.style.display = 'block';
+  modal.setAttribute('aria-hidden', 'false');
+
+  // Optionally make background inert/hidden
+  document.body.querySelectorAll(':scope > *:not(#modal)').forEach(el => el.setAttribute('aria-hidden','true'));
+
+  // Move focus to first focusable element or panel
+  const focusables = getFocusable(panel);
+  (focusables[0] || panel).focus();
+
+  document.addEventListener('keydown', onKeyDown);
+  backdrop.addEventListener('click', closeModal);
+}
+
+function closeModal() {
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden', 'true');
+
+  // undo aria-hidden on background
+  document.body.querySelectorAll(':scope > *:not(#modal)').forEach(el => el.removeAttribute('aria-hidden'));
+
+  document.removeEventListener('keydown', onKeyDown);
+  backdrop.removeEventListener('click', closeModal);
+
+  if (lastFocused) lastFocused.focus();
+}
+
+function onKeyDown(e) {
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    return closeModal();
+  }
+
+  if (e.key === 'Tab') {
+    // focus trap
+    const focusables = getFocusable(panel);
+    if (focusables.length === 0) {
+      e.preventDefault();
+      return;
+    }
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+}
+
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        dialog{
+            height: 100px;
+            width: 200px;
+            border: 2px dotted darkgreen;
+        }
+        dialog::backdrop{
+            background-color:rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body>
+    <div id="ma
+    in">
+    <button id="openBtn">OPEN</button>
+        <button id="closeBtn">CLOSE</button>
+         </div>
+    <dialog id="modal" aria-label="DIALOG">
+        <h2>dialog</h2>
+    </dialog>
+   
+</body>
+<script>
+    const main=document.getElementById("main");
+    const modal=document.getElementById("modal");
+    const openBtn=document.getElementById("openBtn");
+    const closeBtn=document.getElementById("closeBtn");
+    openBtn.addEventListener('click',()=>{
+        modal.showModal();
+                main.setAttribute("inert",'');
+
+    });
+    closeBtn.addEventListener('click',()=>{
+        modal.close();
+        main.inert=false;
+    });
+    document.addEventListener("keydown",(e)=>{
+        if(e.key=="Escape")
+        modal.close();
+    main.inert=false;
+    })
+    
+</script>
+</html>

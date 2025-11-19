@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTS</title>
+</head>
+<button id="b1">Clicke me</button>
+<button id="b2">OR CLICK ME</button>
+<body>
+    <script>
+      document.addEventListener("click",(function(e){
+        console.log("full event object",e);
+        console.log("target element:",e.target);
+        console.log("target element text:",e.target.textContent);
+
+      })
+    </script>
+</body>
+</html>
