@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: pink;
+}
+.dropdown{
+    display: flex;
+}
+#btn{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
